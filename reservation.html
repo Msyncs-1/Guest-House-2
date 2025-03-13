@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Deluxe Guest House</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Experience comfort and luxury at Deluxe Guest House near Mthatha Airport. Enjoy modern amenities, a refreshing swimming pool, free Wi-Fi, secure parking, and cozy rooms with mini fridges and TVs. Book your stay today!" />
+    <meta name="keywords" content="Deluxe Guest House, guest house near mthatha airpot, mthatha accomodation, luxury guest house, affordable guest house mthatha, swimming pool guest house,secure parking, free wifi, business stay, comfortable accomodation" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=|Roboto+Sans:400,700|Playfair+Display:400,700">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/fancybox.min.css">
+    
+    <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+     <header class="site-header js-site-header">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html"><img src="images\1000262076-removebg-preview.png" alt="logo" width=100px height=90px ></a></div>
+          <div class="col-6 col-lg-8">
+
+
+            <div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <!-- END menu-toggle -->
+
+            <div class="site-navbar js-site-navbar">
+              <nav role="navigation">
+                <div class="container">
+                  <div class="row full-height align-items-center">
+                    <div class="col-md-6 mx-auto">
+                      <ul class="list-unstyled menu">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+						<li><a href="reservation.html">Book Online</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- END head -->
+    <!-- END head -->
+
+    <section class="site-hero inner-page overlay" style="background-image: url(images/banner1.jpg)" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+          <div class="col-md-10 text-center" data-aos="fade">
+            <h1 class="heading mb-3">Reservation Form</h1>
+            <ul class="custom-breadcrumbs mb-4">
+              <li><a href="index.html">Home</a></li>
+              <li>&bullet;</li>
+              <li>Booking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <a class="mouse smoothscroll" href="#next">
+        <div class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </div>
+      </a>
+    </section>
+    <!-- END section -->
+
+    <section class="section contact-section" id="next">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+            
+            <form action="process_reservation.php" method="POST" class="bg-white p-md-5 p-4 mb-5 border">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="name">Name</label>
+                  <input type="text" id="name" class="form-control ">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="phone">Phone</label>
+                  <input type="text" id="phone" class="form-control ">
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label class="text-black font-weight-bold" for="email">Email</label>
+                  <input type="email" id="email" class="form-control ">
+                </div>
+              </div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label class="text-black font-weight-bold" for="phone">Select Identification Type</label><br>
+					<input type="radio" id="sa_id" name="id_type" value="SA ID" required onclick="toggleIDField()">
+					<label for="sa_id">South African ID</label><br>
+					<input type="radio" id="passport" name="id_type" value="Passport" required onclick="toggleIDField()">
+					<label for="passport">Foreign Passport</label>
+				</div>
+			</div>
+			 <div class="row">
+                <div class="col-md-12 form-group">
+                  <label id="id_label" class="text-black font-weight-bold" for="id_passport">SA ID or Passport</label>
+				  <input type="text" id="id_passport" name="id_passport"  class="form-control" required>
+				  <small id="id_help" class="form-text text-muted">Enter your Identity Number</small>
+                </div>
+              </div>
+			  <script>
+			  function toggleIDField(){
+				let idInput=document.getElementById("id_passport");
+				let idLabel=document.getElementById("id_label");
+				let idHelp=document.getElementById("id_help");
+				let saID=document.getElementById("sa_id").checked;
+				let passport=document.getElementById("passport").checked;
+				
+				if (saID){
+					idLabel.innerText="South African ID Number";
+					idInput.setAttribute("pattern", "[0-9]{13}");
+					idInput.setAttribute("maxlength","13");
+					idInput.setAttribute("placeholder","Enter 13-digit South African ID";
+					idInput.setAttribute("pattern","^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$");
+					idInput.setAttribute("placeholder","Enter Foreign Passport Number");
+					idInput.setAttribute("maxlength","");
+					idHelp.innerText="Enter at least 6 characters";
+					}
+				}
+			  </script>
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="checkin_date">Date Check In</label>
+                  <input type="text" id="checkin_date" class="form-control">
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="text-black font-weight-bold" for="checkout_date">Date Check Out</label>
+                  <input type="text" id="checkout_date" class="form-control">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="adults" class="font-weight-bold text-black">Adults</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="" id="adults" class="form-control">
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4+</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label for="children" class="font-weight-bold text-black">Children</label>
+                  <div class="field-icon-wrap">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="" id="children" class="form-control">
+					<option value="">0</option>
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4+</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+			<div class="row mb-4">
+                <div class="col-md-12 form-group">
+                  <label class="text-black font-weight-bold" for="message">Notes</label>
+                  <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 form-group">
+				 <span style="color:red; font-style:italic;">*Only 1 Room Left, Book Now</span><br>
+                  <input type="submit" value="Book Now" class="btn btn-primary text-white py-3 px-5 font-weight-bold">
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+	
+<!-- Whatsapp Widget start-->
+<a href="https://wa.me/27781914261" class="whatsapp-widget" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+<!-- Whatsapp Widget end-->
+
+    <footer class="section footer-section">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-3 mb-5">
+            <ul class="list-unstyled link">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="reservation.html">Book</a></li>
+              <li><a href="about.html">About Us</a></li>
+             <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-md-3 mb-5 pr-md-5 contact-info">
+            <p><span class="d-block"><span class="h5 mr-3 text-primary"></span>Address:</span> <span> 126 Chief Jojo Drive, <br> Southridge Park, Mthatha</span></p>
+            <p><span class="d-block"><span class="h5 mr-3 text-primary"></span>Phone:</span> <span> 083 982 6924</span><br><span> 078 191 4261</span></p>
+           <img src="images\1741604110217.png">
+			</div>
+           <div class="col-md-3 mb-5 pr-md-5 contact-info">
+		   <div style="width:100%"><iframe width="350" height="370" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=350&amp;height=450&amp;hl=en&amp;q=126%20chief%20jojo%20drive,%20south%20ridge%20park%20Mthatha%20+(Deluxe%20Guest%20House)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+		   <a href="https://www.gps.ie/collections/drones/">gps drone</a></iframe></div>
+		   </div>
+        </div>
+        <div class="row pt-5">
+          <p class="col-md-6 text-left">
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Deluxe Guest House
+          </p>
+        </div>
+      </div>
+    </footer>
+    
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    
+    
+    <script src="js/aos.js"></script>
+    
+    <script src="js/bootstrap-datepicker.js"></script> 
+    <script src="js/jquery.timepicker.min.js"></script> 
+
+    
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
